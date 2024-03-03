@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="post-coment-insert" author="michał">
+        <!-- insert into post (id, title, content) values (1, 'test1', 'test1' );  insert into comment (id, post_id, content) values (1, 1, 'test1');insert into comment (id, post_id, content) values (2, 1, 'test11');
+ -->
+        <insert tableName="post">
+            <column name="id" value="1"/>
+            <column name="title" value="test1"/>
+            <column name="content" value="test1"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="id" value="1"/>
+            <column name="post_id" value="1"/>
+            <column name="content" value="test1"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="id" value="2"/>
+            <column name="post_id" value="1"/>
+            <column name="content" value="test11"/>
+        </insert>
+        <insert tableName="post">
+            <column name="id" value="2"/>
+            <column name="title" value="test2"/>
+            <column name="content" value="test2"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="id" value="3"/>
+            <column name="post_id" value="2"/>
+            <column name="content" value="test2"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="id" value="4"/>
+            <column name="post_id" value="2"/>
+            <column name="content" value="test22"/>
+        </insert>
+        <insert tableName="post">
+            <column name="id" value="3"/>
+            <column name="title" value="test3"/>
+            <column name="content" value="test3"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="id" value="5"/>
+            <column name="post_id" value="3"/>
+            <column name="content" value="test3"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="id" value="6"/>
+            <column name="post_id" value="3"/>
+            <column name="content" value="test33"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
