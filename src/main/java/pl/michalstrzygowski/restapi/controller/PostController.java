@@ -35,46 +35,4 @@ public class PostController {
     public Post getPostById(@Parameter(name = "id") @PathVariable Long id) {
         return postService.getPostById(id);
     }
-
-    @GetMapping("/code")
-    public String getCode() {
-
-        HashMap<String,HashSet<String>> list = new HashMap<>();
-        String letter ;
-
-        char[][] triplets = {
-                {'t','u','p'},
-                {'w','h','i'},
-                {'t','s','u'},
-                {'a','t','s'},
-                {'h','a','p'},
-                {'t','i','s'},
-                {'w','h','s'}
-        };
-        for(int i = 0; i < triplets.length; i++) {
-            for(int j = 0; j < triplets[i].length; j++) {
-                letter = String.valueOf(triplets[i][j]);
-                if(!list.containsKey(letter)){
-                    list.put(String.valueOf(triplets[i][j]), new HashSet<>());
-                }
-                if(j == 1){
-                   list.get(letter).add(String.valueOf(triplets[i][j-1]));
-                }
-                if(j == 2){
-                    list.get(letter).add(String.valueOf(triplets[i][j-1]));
-                    list.get(letter).add(String.valueOf(triplets[i][j-2]));
-
-                }
-            }
-        }
-        String[] list2 = new String[list.size()];
-        list.forEach((key, value) ->{
-              if( value.isEmpty()){
-                  list2[0] = key;
-            }
-        });
-        System.out.println(list2);
-
-        return list2.toString();
-    }
 }
